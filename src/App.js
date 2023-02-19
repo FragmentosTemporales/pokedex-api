@@ -13,7 +13,7 @@ const App = () => {
         <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/profile/:id" element={<Profile />} />
+          <Route path="/pokemon/:id" element={<Profile />} />
         </Routes>
         <Footer />
       </BrowserRouter>
