@@ -1,26 +1,46 @@
 import { Link } from 'react-router-dom'
 import '../App.css';
+
 const Card = (props) => {
+
+    const handleClick = () => {
+        window.location.replace(`http://localhost:3000/pokemon/${props.number}`);
+      };
     return (
         <div>
             <div className=" card m-3 border border-dark bg-warning shadow-lg">
-                <div className='border border-dark m-3 shadow-lg bg-info'>
-                    <h5 className='m-1'>ID: # {props.id}</h5>
+                <div 
+                style={{ borderRadius: '5px' }}
+                className='border border-dark m-3 shadow-lg bg-info'>
+                    <h5 className='m-1 text-center'># {props.id}</h5>
                 </div>
 
-                <div className='m-3 shadow-lg bg-light d-flex justify-content-center align-items-center+'>
-                    <img className='bg-light'
+                <div 
+                style={{ borderRadius: '5px' }} 
+                className='border border-dark bg-light m-3 shadow-lg d-flex justify-content-center align-items-center+'>
+                    <img className='imgContainer bg-light imgLarge '
                         src={props.img}
                         alt={props.name} />
                 </div>
 
                 <div className="card-body">
-                    <h5 className="card-title">Name: {props.name}</h5>
-                    <p className="card-text"> Type: {props.types}</p>
+                    <h3 className="card-title text-center">{props.name}</h3>
+                    <h4 className="card-text text-center">{props.types}</h4>
 
-                    <div className='p-2 shadow-lg bg-info d-flex justify-content-between border border-dark'>
-                        <Link to="/profile/pokemon/" className="btn btn-dark border border-white shadow-lg">Read more...</Link>
-                        <Link to="/profile" className="btn btn-light border border-dark shadow-lg">Favs</Link>
+                    <div 
+                    style={{ borderRadius: '5px' }}
+                    className='p-2 shadow-lg bg-info d-flex justify-content-between border border-dark'>
+                        <Link 
+                        to=""
+                        className="btn btn-dark border border-white shadow-lg"
+                        onClick={handleClick}
+                        >Read more...</Link>
+                        
+                        <Link 
+                        to="#" 
+                        className="btn btn-light border border-dark shadow-lg"
+                        
+                        >Favs</Link>
                     </div>
 
                 </div>

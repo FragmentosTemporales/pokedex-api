@@ -1,0 +1,10 @@
+.imgContainer {
+  background-image: url(blob.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.imgLarge {
+  width: 200px;
+  height: 200px;
+}

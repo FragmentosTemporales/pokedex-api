@@ -44,16 +44,19 @@ const Cards = () => {
   }, []);
 
   return (
-    <div className="container">
-      <h1 className="pb-3">Pokemon Kanto</h1>
+    <div 
+    style={{ borderRadius: '5px' }}
+    className="container border border-dark bg-success mt-3 mb-3 shadow-lg">
+      <h1 className="p-3 text-center shadow-lg border bg-info border-primary m-3">Pokemon List</h1>
       <div className="row">
         {characters.map((pokemon) => (
           <div key={pokemon.id} className="col-4">
             <Card
+              number={pokemon.id}
               name={capitalizeName(pokemon.name)}
               id={formatId(pokemon.id)}
               img={pokemon.sprites.front_default}
-              types={pokemon.types}
+              types={pokemon.types.join(", ")}
             />
           </div>
         ))}
