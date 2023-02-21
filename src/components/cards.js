@@ -6,7 +6,7 @@ const Cards = () => {
   const [characters, setCharacters] = useState([]);
 
   const fetchData = () => {
-    fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
+    fetch('https://pokeapi.co/api/v2/pokemon?limit=1008')
       .then(response => response.json())
       .then(data => {
         const characterUrls = data.results.map(result => result.url);

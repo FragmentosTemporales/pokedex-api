@@ -1,11 +1,10 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom'
 import '../App.css';
+import { Context } from '../store/context';
 
 const Card = (props) => {
 
-    const handleClick = () => {
-        window.location.replace(`http://localhost:3000/pokemon/${props.number}`);
-      };
     return (
         <div>
             <div className=" card m-3 border border-dark bg-warning shadow-lg">
@@ -31,9 +30,9 @@ const Card = (props) => {
                     style={{ borderRadius: '5px' }}
                     className='p-2 shadow-lg bg-info d-flex justify-content-between border border-dark'>
                         <Link 
-                        to=""
+                        to={"pokemon/" + props.number}
                         className="btn btn-dark border border-white shadow-lg"
-                        onClick={handleClick}
+                        
                         >Read more...</Link>
                         
                         <Link 

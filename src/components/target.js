@@ -6,12 +6,12 @@ const Target = (props) => {
     };
     const clickNext = () => {
         const nextId = parseInt(props.id) + 1;
-        const limitedNextId = nextId > 151 ? 1 : nextId;
+        const limitedNextId = nextId > 1008 ? 1 : nextId;
         window.location.replace(`http://localhost:3000/pokemon/${limitedNextId}`);
     };
     const clickBack = () => {
         const nextId = parseInt(props.id) - 1;
-        const limitedNextId = nextId < 1 ? 151 : nextId;
+        const limitedNextId = nextId < 1 ? 1008 : nextId;
         window.location.replace(`http://localhost:3000/pokemon/${limitedNextId}`);
     };
     return (
