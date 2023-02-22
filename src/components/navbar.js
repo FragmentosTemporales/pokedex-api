@@ -1,24 +1,50 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Context } from "../store/context";
 const NavBar = () => {
+
+  const { store, actions } = useContext(Context);
+  const handleDelete = () => {
+    actions.delFavorite();
+  };
+
+
   return (
     <div>
       <nav className="navbar bg-body-tertiary bg-dark">
         <div className="container">
           <Link className="navbar-brand" to="/">
-          <img className="img-fluid logoImg" 
-          src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/2560px-International_Pok%C3%A9mon_logo.svg.png'
-          alt="Bootstrap" 
-          width="90" 
-          height="90" 
-          />
+            <img className="img-fluid logoImg"
+              src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/2560px-International_Pok%C3%A9mon_logo.svg.png'
+              alt="Bootstrap"
+              width="90"
+              height="90"
+            />
           </Link>
           <div className="dropdown">
-            <button className="btn btn-dark border-warning text-warning dropdown-toggle pr-4" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Favorites <span className="badge text-bg-secondary">0</span>
-            </button>
-            <ul className="dropdown-menu">
-              <li><a className="dropdown-item" href="#"><button className='btn btn-dark'>X</button> Fav 1</a></li>
-            </ul>
+            <div className="dropdown-item-text">
+              <button className="btn btn-dark border-warning text-warning dropdown-toggle pr-4" type="button" data-bs-toggle="dropdown" aria-expanded="false" >
+                <span className="badge text-bg-secondary">{store.favorite.length}</span> Favorites <i className="bi bi-star"></i>
+              </button>
+              <ul className="dropdown-menu p-2">
+                {store.favorite.length > 0 ? (
+                  store.favorite.map((fav, index) => (
+                    <ul  className="list-group-item d-flex justify-content-between align-items-center p-1">
+                      <li 
+                      key={index}  
+                      className="dropdown-item-text">{fav}</li>
+                      <span>
+                        <button type="button" className="btn btn-outline-dark" onClick={handleDelete}>X</button>
+                      </span>
+
+                    </ul>
+                  ))
+                ) : (
+                  <li className="dropdown-item" disabled > Empty </li>
+
+                )}
+              </ul>
+            </div>
           </div>
         </div>
       </nav >

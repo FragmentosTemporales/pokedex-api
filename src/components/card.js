@@ -4,6 +4,11 @@ import '../App.css';
 import { Context } from '../store/context';
 
 const Card = (props) => {
+    
+    const { actions } = useContext(Context);
+    const handleSubmit =()=>{
+        actions.addFavorite(props.name);
+    };
 
     return (
         <div>
@@ -35,11 +40,11 @@ const Card = (props) => {
                         
                         >Read more...</Link>
                         
-                        <Link 
+                        <button 
                         to="#" 
                         className="btn btn-light border border-dark shadow-lg"
-                        
-                        >Favs</Link>
+                        onClick={handleSubmit}
+                        >Fav</button>
                     </div>
 
                 </div>
