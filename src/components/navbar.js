@@ -7,8 +7,8 @@ const NavBar = () => {
 
   const { store, actions } = useContext(Context);
   const trash = <FontAwesomeIcon icon={faTrash} />
- 
-  
+
+
 
 
   return (
@@ -25,24 +25,31 @@ const NavBar = () => {
           </Link>
           <div className="dropdown">
             <div className="dropdown-item-text">
-              <button className="btn btn-dark border-warning text-warning dropdown-toggle pr-4" type="button" data-bs-toggle="dropdown" aria-expanded="false" >
+              <button className="btn btn btn-dark border-warning text-warning dropdown-toggle pr-4" type="button" data-bs-toggle="dropdown" aria-expanded="false" >
                 <span className="badge text-bg-secondary">{store.favorite.length}</span> Favorites <i className="bi bi-star"></i>
               </button>
-              <ul className="dropdown-menu p-2">
+              <ul className="dropdown-menu shadow-lg p-2">
                 {store.favorite.length > 0 ? (
                   store.favorite.map((item, index) => (
-                    <ul  className="list-group-item d-flex justify-content-between align-items-center p-1">
-                      <li 
-                      key={index}  
-                      className="dropdown-item-text">{item}</li>
+                    <ul 
+                    style={{ borderRadius: '5px' }}
+                    className="list-group-item d-flex justify-content-between align-items-center p-1 text-white shadow m-1">
+                      <li
+                        key={index}
+                        className="dropdown-item-text text-dark">
+                        <strong>{item}</strong>
+                      </li>
                       <span>
-                        <button type="button" className="btn btn-outline-dark" onClick={()=> actions.removeFavorite(item)}>{trash}</button>
+                        <button 
+                        type="button" 
+                        className="btn btn-danger shadow" 
+                        onClick={() => actions.removeFavorite(item)}>{trash}</button>
                       </span>
 
                     </ul>
                   ))
                 ) : (
-                  <li className="dropdown-item" disabled > Empty </li>
+                  <li className="dropdown-item-text text-center text-secondary"> Empty </li>
 
                 )}
               </ul>

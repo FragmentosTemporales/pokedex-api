@@ -39,13 +39,13 @@ const Card = (props) => {
                     className='p-2 shadow-lg bg-info d-flex justify-content-between border border-dark'>
                         <Link 
                         to={"pokemon/" + props.number}
-                        className="btn btn-dark border border-white shadow-lg"
+                        className="btn btn-primary border border-dark shadow-lg"
                         
                         >Read more...</Link>
                         
                         <button 
                         to="#" 
-                        className="btn btn-light border border-dark shadow-lg"
+                        className="btn btn-danger border border-dark shadow-lg"
                         onClick={handleSubmit}
                         >{fav}</button>
                     </div>

@@ -24,7 +24,9 @@ const Profile = () => {
     }, [id]);
 
     if (!pokemon) {
-        return <p>Loading...</p>;
+        return <div className="spinner-border" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </div>;
     }
     const formatId = (id) => {
 
