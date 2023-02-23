@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { Context } from "../store/context";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
 const NavBar = () => {
 
   const { store, actions } = useContext(Context);
-  const handleDelete = () => {
-    actions.delFavorite();
-  };
+  const trash = <FontAwesomeIcon icon={faTrash} />
+ 
+  
 
 
   return (
@@ -28,13 +30,13 @@ const NavBar = () => {
               </button>
               <ul className="dropdown-menu p-2">
                 {store.favorite.length > 0 ? (
-                  store.favorite.map((fav, index) => (
+                  store.favorite.map((item, index) => (
                     <ul  className="list-group-item d-flex justify-content-between align-items-center p-1">
                       <li 
                       key={index}  
-                      className="dropdown-item-text">{fav}</li>
+                      className="dropdown-item-text">{item}</li>
                       <span>
-                        <button type="button" className="btn btn-outline-dark" onClick={handleDelete}>X</button>
+                        <button type="button" className="btn btn-outline-dark" onClick={()=> actions.removeFavorite(item)}>{trash}</button>
                       </span>
 
                     </ul>

@@ -2,10 +2,13 @@ import { useContext } from 'react';
 import { Link } from 'react-router-dom'
 import '../App.css';
 import { Context } from '../store/context';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
 
 const Card = (props) => {
     
     const { actions } = useContext(Context);
+    const fav = <FontAwesomeIcon icon={faHeart} />
     const handleSubmit =()=>{
         actions.addFavorite(props.name);
     };
@@ -44,7 +47,7 @@ const Card = (props) => {
                         to="#" 
                         className="btn btn-light border border-dark shadow-lg"
                         onClick={handleSubmit}
-                        >Fav</button>
+                        >{fav}</button>
                     </div>
 
                 </div>

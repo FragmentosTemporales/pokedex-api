@@ -9,13 +9,13 @@ const getState = ({ setStore, getActions, getStore }) => {
         if (!favorite.includes(name)) {
           const newFavorites = [...favorite, name];
           setStore({ favorite: newFavorites });
+          console.log(newFavorites);
         }
       },
-      delFavorite: (index) => {
-        const { favorite } = getStore();
-        const newFavorites = [...favorite];
-        newFavorites.splice(index, 1);
-        setStore({ favorite: newFavorites });
+      removeFavorite: name => {
+        const store = getStore();
+        const newFavorites = store.favorite.filter(item => item !== name);
+        setStore({favorite: newFavorites});
       }
     },
 
